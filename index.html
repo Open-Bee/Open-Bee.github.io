@@ -4,11 +4,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-    content="Bee is a suite of resources, including the Honey-Data-15M corpus, the HoneyPipe curation pipeline, and the Bee-8B model, designed to advance fully open Multimodal Large Language Models (MLLMs).">
+    content="Bee is a suite of resources, including the Honey-Data-15M and Honey-Data-V2 corpora, the HoneyPipe curation pipeline, and the Bee-8B model, designed to advance fully open Multimodal Large Language Models (MLLMs).">
   <meta name="keywords"
-    content="Bee, Honey-Data-15M, Bee-8B, MLLM, CoT, Data Curation, Open-Source, Fully Open, Multimodal, Large Language Models, Reasoning">
+    content="Bee, Honey-Data-15M, Honey-Data-V2, Bee-8B, MLLM, CoT, Data Curation, Open-Source, Fully Open, Multimodal, Large Language Models, Reasoning">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bee: A High-Quality Corpus and Full-Stack Suite to Unlock Advanced Fully Open MLLMs</title>
+  <title>Bee: A High-Quality Corpus and Full-Stack Suite for End-to-End Training of Fully Open MLLMs</title>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
   <script>
@@ -87,12 +87,15 @@
             <h1 class="title is-1 publication-title">
               <img src="./static/images/logo.png" alt="Bee Logo"
                 style="height: 1.5em; vertical-align: middle; margin-right: 0.3em;">
-              Bee: A High-Quality Corpus and Full-Stack Suite to Unlock Advanced Fully Open MLLMs
+              Bee: A High-Quality Corpus and Full-Stack Suite for End-to-End Training of Fully Open MLLMs
             </h1>
             <div class="publication-venue" style="margin-bottom: 1rem; text-align: center; display: block; width: 100%;">
               <span class="is-size-5" style="font-weight: bold;">
-                ICLR 2026
+                Computational Visual Media (journal version) &nbsp;·&nbsp; ICLR 2026 (conference version)
               </span>
+              <p class="is-size-6 has-text-grey" style="margin-top: 0.3rem;">
+                Conference version: <em>Bee: A High-Quality Corpus and Full-Stack Suite to Unlock Advanced Fully Open MLLMs</em>
+              </p>
             </div>
             <div class="is-size-5 publication-authors">
               <span class="author-block">
@@ -165,6 +168,15 @@
                   </a>
                 </span>
                 <span class="link-block">
+                  <a href="https://huggingface.co/datasets/HoneyDataV2/Honey-Data-V2"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      🍯
+                    </span>
+                    <span>Honey-Data-V2 (New)</span>
+                  </a>
+                </span>
+                <span class="link-block">
                   <a href="https://modelscope.cn/collections/Bee-d93055d80e8c40" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fas fa-robot"></i>
@@ -190,32 +202,61 @@
 
   <section class="section">
     <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">🔥 News</h2>
+          <div class="content">
+            <ul>
+              <li><b>[2026.09]</b> 🍯 <a href="https://huggingface.co/datasets/HoneyDataV2/Honey-Data-V2"><b>Honey-Data-V2</b></a>
+                is released: 44.3M samples comprising 100.3M QA pairs over 19.7M image groups, the scaled-up corpus of
+                the journal version. See <a href="#honey-data-v2">below</a>.</li>
+              <li><b>[2026.09]</b> 🎉 The journal version of Bee, <em>Bee: A High-Quality Corpus and Full-Stack Suite for
+                End-to-End Training of Fully Open MLLMs</em>, has been accepted to <b>Computational Visual Media</b>.</li>
+              <li><b>[2026.03]</b> 💻 Our main code is open-sourced on <a href="https://github.com/orgs/Open-Bee/repositories">GitHub</a>.</li>
+              <li><b>[2026.01]</b> 🎉 Bee has been accepted to <b>ICLR 2026</b>.</li>
+              <li><b>[2025.12]</b> 🔥 All data and model weights across training stages are released.</li>
+              <li><b>[2025.11]</b> 📊 <a href="https://huggingface.co/datasets/Open-Bee/Honey-Data-15M">Honey-Data-15M</a> and
+                <a href="https://huggingface.co/datasets/Open-Bee/Honey-Data-1M">Honey-Data-1M</a> are released.</li>
+              <li><b>[2025.10]</b> 🐝 <a href="https://huggingface.co/collections/Open-Bee/Bee-8b-68ecbf10417810d90fbd9995">Bee-8B</a> is released.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           <h2 class="title is-3 has-text-centered">📄 Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              Fully open multimodal large language models (MLLMs) currently lag behind proprietary counterparts,
-              primarily due to a significant gap in data quality for supervised fine-tuning (SFT). Existing open-source
-              datasets are often plagued by widespread noise and a critical deficit in complex reasoning data, such as
-              Chain-of-Thought (CoT), which hinders the development of advanced model capabilities.
+              Fully open multimodal large language models (MLLMs) still trail proprietary counterparts, largely due to
+              a gap in end-to-end training data quality. Existing open-source efforts often train individual stages
+              rather than a unified end-to-end pipeline. At the same time, currently available datasets still suffer
+              from pervasive noise, a shortage of complex reasoning data such as chains-of-thought (CoTs), and a lack of
+              reinforcement learning (RL) signals well aligned with model capabilities.
             </p>
             <p>
-              Addressing these challenges, our work makes three primary contributions. First, we introduce
-              Honey-Data-15M, a new SFT dataset comprising approximately 15 million QA pairs, processed through multiple
-              cleaning techniques and enhanced with a novel dual-level (short and long) CoT enrichment strategy. Second,
-              we introduce HoneyPipe, the data curation pipeline, and its underlying framework DataStudio, providing the
-              community with a transparent and adaptable methodology for data curation that moves beyond static dataset
-              releases. Finally, to validate our dataset and pipeline, we train Bee-8B, an 8B model on Honey-Data-15M.
+              To address these challenges, our work makes three primary contributions. First, we introduce
+              Honey-Data-15M, a supervised fine-tuning (SFT) corpus of approximately 15 million QA pairs cleaned using
+              multiple techniques and enhanced with a novel dual-level (short and long) CoT strategy. Alongside
+              Honey-Data-15M, we also present a high-quality RL dataset specifically tailored to the model's
+              capabilities. Second, we introduce HoneyPipe, a data curation pipeline, and its underlying framework
+              DataStudio, providing the community with a transparent and adaptable methodology for full-pipeline data
+              curation (pre-training, SFT, and RL) that moves beyond static dataset releases. Finally, to validate our
+              dataset and pipeline, we have trained Bee-8B through a joint SFT and RL recipe.
             </p>
             <p>
-              Experiments show that Bee-8B establishes a new state-of-the-art (SOTA) for fully open MLLMs, achieving
+              Experiments show that Bee-8B establishes a new state-of-the-art for fully open MLLMs, achieving
               performance that is competitive with, and in some cases surpasses, recent semi-open models such as
-              InternVL3.5-8B. Our work delivers to the community a suite of foundational resources, including: the
-              Honey-Data-15M corpus; the full-stack suite comprising HoneyPipe and DataStudio; training recipes; an
-              evaluation harness; and the model weights. This effort demonstrates that a principled focus on data
-              quality is a key pathway to developing fully open MLLMs that are highly competitive with their semi-open
-              counterparts.
+              InternVL3.5-8B. A comprehensive ablation study further dissects the impact of our data curation process,
+              revealing that each stage provides significant performance gains across a wide range of benchmarks. Our
+              work delivers to the community a suite of foundational resources, including the Honey-Data-15M corpus,
+              the full-stack suite comprising HoneyPipe and DataStudio, training recipes, an evaluation harness, and
+              the model weights. This effort demonstrates that a principled focus on end-to-end data quality is a key
+              pathway to developing highly competitive fully open MLLMs.
             </p>
           </div>
         </div>
@@ -305,6 +346,82 @@
           </div>
         </div>
       </div>
+      <div class="columns is-centered" id="honey-data-v2">
+        <div class="column is-full-width">
+          <h2 class="title is-3 has-text-centered">🍯 Honey-Data-V2 <span class="tag is-warning is-medium" style="vertical-align: middle;">New</span></h2>
+          <div class="content has-text-justified">
+            <p>
+              With the journal version we release <strong><a href="https://huggingface.co/datasets/HoneyDataV2/Honey-Data-V2">Honey-Data-V2</a></strong>,
+              produced by reapplying HoneyPipe to Honey-Data-15M at a substantially larger scale:
+              <strong>44.3M samples comprising 100.3M QA pairs</strong> over 19.7M image groups (5.81 TB), with long CoT
+              covering 17.9% of the corpus (7.9M samples, against 2.9M in Honey-Data-15M). It is not built from scratch;
+              it extends Honey-Data-15M in three ways, all executed with the existing operators of DataStudio:
+            </p>
+            <ul>
+              <li><b>Re-curation of the existing pool.</b> Acting on community defect reports, samples whose final turn
+                carries no answer were removed, 492.6K grounding instructions were rewritten to state their coordinate
+                convention up front, and 1.8M machine-recaptioning samples were dropped. Image placeholders were
+                canonicalized, and degenerate generations (unpaired reasoning tags, repetition collapse, placeholder
+                leakage) were rejected.</li>
+              <li><b>Multi-model rollout.</b> On top of the original annotation pass, two further independent rollouts
+                answered the same instructions with an upgraded model stack (Qwen3-VL-235B-A22B Instruct and Thinking,
+                Doubao-Thinking, Kimi-K2.5), all checked by the same verifier, Qwen3-235B-A22B-Instruct. Every verified
+                answer is kept, so an instruction carries one to three independently produced answers.</li>
+              <li><b>New source incorporation.</b> The FineVision datasets absent from Honey-Data-15M, together with
+                Molmo2-SynMultiImageQA, ChartVerse and Aria-UI, were passed through the same HoneyPipe rather than
+                concatenated as-is. Sources whose answers are already determinate, such as OCR transcription and
+                box-level grounding, were filtered but not rewritten.</li>
+            </ul>
+          </div>
+          <div class="content has-text-centered">
+            <table class="table is-bordered is-striped" style="margin: 0 auto; font-size: 0.9rem;">
+              <thead>
+                <tr style="background-color: #f5f5f5;">
+                  <th>Lineage</th>
+                  <th style="text-align: right;">Samples</th>
+                  <th style="text-align: right;">Long CoT</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Re-curated Honey-Data-15M pool (three rollout passes: 9.6M + 12.8M + 7.0M)</td><td style="text-align: right;">29.4M</td><td style="text-align: right;">15.5%</td></tr>
+                <tr><td>Newly incorporated sources</td><td style="text-align: right;">14.9M</td><td style="text-align: right;">22.6%</td></tr>
+                <tr><td><b>Honey-Data-V2 total</b></td><td style="text-align: right;"><b>44.3M</b></td><td style="text-align: right;"><b>17.9%</b></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="columns is-vcentered">
+            <div class="column is-6">
+              <div class="content has-text-centered">
+                <img src="./static/images/honey_data_v2_composition.png" alt="Honey-Data-V2 composition by domain"
+                  style="width: 100%; max-width: 420px;" />
+                <p class="is-size-6 has-text-grey" style="margin-top: 0.5rem; font-style: italic;">
+                  <strong>Figure 4:</strong> Composition of Honey-Data-V2 by domain and CoT level. Darker segments
+                  denote long CoT.
+                </p>
+              </div>
+            </div>
+            <div class="column is-6">
+              <div class="content has-text-centered">
+                <img src="./static/images/honey_data_v2_lineage.png" alt="Honey-Data-V2 sources of each domain"
+                  style="width: 100%; max-width: 420px;" />
+                <p class="is-size-6 has-text-grey" style="margin-top: 0.5rem; font-style: italic;">
+                  <strong>Figure 5:</strong> Sources of each domain: the three rollout passes over the
+                  Honey-Data-15M pool versus the newly incorporated sources.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="content has-text-justified">
+            <p>
+              Each record of the release groups every conversation that refers to the same image, so image bytes are
+              stored once, and every answer carries the provenance of the models that wrote and verified it. See the
+              <a href="https://huggingface.co/datasets/HoneyDataV2/Honey-Data-V2">dataset card</a> for the record
+              layout and loading examples. The Bee-8B results below are from models trained on Honey-Data-15M;
+              evaluating Honey-Data-V2 is left for future work.
+            </p>
+          </div>
+        </div>
+      </div>
       <div class="columns is-centered">
         <div class="column is-full-width">
           <h2 class="title is-3 has-text-centered">🐝 Overall results for Bee-8B</h2>
@@ -314,7 +431,8 @@
               the full Honey-Data-15M dataset. Bee-8B establishes a new performance bar for fully open models,
               particularly in factual accuracy and complex reasoning, and proves highly competitive with recent
               semi-open models. These results confirm our core thesis: a focus on high-quality data curation is critical
-              for creating models that can rival leading semi-open counterparts.
+              for creating models that can rival leading semi-open counterparts. The table reports the released
+              Bee-8B-SFT and Bee-8B-RL checkpoints.
             </p>
 
             <div class="content has-text-centered" style="margin-top: 2rem; margin-bottom: 2rem;">
@@ -654,11 +772,21 @@
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
-      <pre><code>@article{zhang2025bee,
+      <p>Journal version (Honey-Data-V2):</p>
+      <pre><code>@article{zhang2026beecvm,
+  title={Bee: A High-Quality Corpus and Full-Stack Suite for End-to-End Training of Fully Open MLLMs},
+  author={Zhang, Yi and Ni, Bolin and Chen, Xin-Sheng and Zhang, Heng-Rui and Rao, Yongming and Peng, Houwen and Lu, Qinglin and Hu, Han and Guo, Meng-Hao and Hu, Shi-Min},
+  journal={Computational Visual Media},
+  year={2026},
+  note={to appear}
+}
+</code></pre>
+      <p>Conference version (Honey-Data-15M, Bee-8B):</p>
+      <pre><code>@inproceedings{zhang2026bee,
   title={Bee: A High-Quality Corpus and Full-Stack Suite to Unlock Advanced Fully Open MLLMs},
   author={Zhang, Yi and Ni, Bolin and Chen, Xin-Sheng and Zhang, Heng-Rui and Rao, Yongming and Peng, Houwen and Lu, Qinglin and Hu, Han and Guo, Meng-Hao and Hu, Shi-Min},
-  journal={arXiv preprint arXiv:2510.13795},
-  year={2025}
+  booktitle={International Conference on Learning Representations (ICLR)},
+  year={2026}
 }
 </code></pre>
     </div>
