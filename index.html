@@ -8,7 +8,7 @@
   <meta name="keywords"
     content="Bee, Honey-Data-15M, Honey-Data-V2, Bee-8B, MLLM, CoT, Data Curation, Open-Source, Fully Open, Multimodal, Large Language Models, Reasoning">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bee: A High-Quality Corpus and Full-Stack Suite for End-to-End Training of Fully Open MLLMs</title>
+  <title>Bee: A High-Quality Corpus and Full-Stack Suite to Unlock Advanced Fully Open MLLMs</title>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
   <script>
@@ -87,14 +87,14 @@
             <h1 class="title is-1 publication-title">
               <img src="./static/images/logo.png" alt="Bee Logo"
                 style="height: 1.5em; vertical-align: middle; margin-right: 0.3em;">
-              Bee: A High-Quality Corpus and Full-Stack Suite for End-to-End Training of Fully Open MLLMs
+              Bee: A High-Quality Corpus and Full-Stack Suite to Unlock Advanced Fully Open MLLMs
             </h1>
             <div class="publication-venue" style="margin-bottom: 1rem; text-align: center; display: block; width: 100%;">
               <span class="is-size-5" style="font-weight: bold;">
-                Computational Visual Media (journal version) &nbsp;·&nbsp; ICLR 2026 (conference version)
+                ICLR 2026 &nbsp;·&nbsp; Computational Visual Media (journal version)
               </span>
               <p class="is-size-6 has-text-grey" style="margin-top: 0.3rem;">
-                Conference version: <em>Bee: A High-Quality Corpus and Full-Stack Suite to Unlock Advanced Fully Open MLLMs</em>
+                Journal version: <em>Bee: A High-Quality Corpus and Full-Stack Suite for End-to-End Training of Fully Open MLLMs</em>
               </p>
             </div>
             <div class="is-size-5 publication-authors">
@@ -218,6 +218,33 @@
               <li><b>[2025.11]</b> 📊 <a href="https://huggingface.co/datasets/Open-Bee/Honey-Data-15M">Honey-Data-15M</a> and
                 <a href="https://huggingface.co/datasets/Open-Bee/Honey-Data-1M">Honey-Data-1M</a> are released.</li>
               <li><b>[2025.10]</b> 🐝 <a href="https://huggingface.co/collections/Open-Bee/Bee-8b-68ecbf10417810d90fbd9995">Bee-8B</a> is released.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">✨ What's New in the Journal Version</h2>
+          <div class="content has-text-justified">
+            <p>
+              The conference version mainly focused on the SFT stage and treated RL in a relatively decoupled manner.
+              The journal version considers SFT and RL in a unified end-to-end recipe:
+            </p>
+            <ul>
+              <li><b>Model-tailored RL data.</b> Building on the original SFT corpus and its curation pipeline, we
+                introduce a model-tailored RL data construction pipeline and a high-quality RL dataset, completing the
+                full workflow from SFT to RL (<a href="#rl-data">below</a>).</li>
+              <li><b>Honey-Data-V2.</b> The SFT corpus itself is scaled up to 44.3M samples comprising 100.3M QA pairs:
+                the original pool is re-curated under stricter structural constraints, re-annotated with an upgraded
+                model stack, and extended with newly released community corpora (<a href="#honey-data-v2">below</a>).</li>
+              <li><b>A more comprehensive empirical study.</b> Results previously distributed across the main paper and
+                supplementary material are consolidated and extended with additional analyses, ablation studies, and
+                stage-wise evaluations.</li>
             </ul>
           </div>
         </div>
@@ -418,6 +445,30 @@
               <a href="https://huggingface.co/datasets/HoneyDataV2/Honey-Data-V2">dataset card</a> for the record
               layout and loading examples. The Bee-8B results below are from models trained on Honey-Data-15M;
               evaluating Honey-Data-V2 is left for future work.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="columns is-centered" id="rl-data">
+        <div class="column is-full-width">
+          <h2 class="title is-3 has-text-centered">🎯 Model-Tailored RL Data</h2>
+          <div class="content has-text-justified">
+            <p>
+              The RL stage refines the reasoning patterns instilled by SFT, mitigates formatting errors, and encourages
+              rigorous logical deduction. Its data is curated to match the model's current capacity: open-source RL
+              datasets and grounding and counting tasks transformed from our SFT grounding sources form the initial
+              pool, and the SFT model then generates eight rollouts per prompt. An LLM judge scores them, and prompts
+              the model already solves in all eight rollouts are discarded, leaving only appropriately challenging
+              samples with definitive ground truths for GRPO training.
+            </p>
+          </div>
+          <div class="content has-text-centered">
+            <img src="./static/images/rl_pipeline.png" alt="Model-tailored RL data curation pipeline" style="width: 100%;" />
+            <p class="is-size-6 has-text-grey" style="margin-top: 0.5rem; font-style: italic;">
+              <strong>Figure 6:</strong> Overview of the model-tailored RL data curation pipeline. The data aggregation
+              stage merges open-source and grounding data into an initial pool. During capability-tailored filtering,
+              the SFT model generates 8 rollouts per prompt. A judge model evaluates them, discarding overly easy tasks
+              (all 8 correct) to retain only appropriately challenging samples.
             </p>
           </div>
         </div>
